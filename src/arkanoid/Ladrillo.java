@@ -15,13 +15,14 @@ public class Ladrillo extends Actor {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Ladrillo(int x, int y, int ancho, int largo, String color) {
+	public Ladrillo(int x, int y, int ancho, int largo, String color, int puntosVida) {
 		super();
 		this.x = x;
 		this.y = y;
 		this.ancho = ancho;
 		this.largo = largo;
 		this.color = color;
+		this.puntosVida = puntosVida;
 	}
 	public Ladrillo(int puntosVida, String color) {
 		super();
@@ -83,7 +84,10 @@ public class Ladrillo extends Actor {
 		super.colisionaCon(a);
 		// Si colisionamos con un player o un disparo, eliminamos al monstruo
 		if (a instanceof Pelota) {
+			setPuntosVida(puntosVida - 1);
+			if (getPuntosVida() == 0)
 			Arkanoid.getInstance().eliminaActor(this);
+			
 		}
 	}
 	

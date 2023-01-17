@@ -6,6 +6,8 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -37,6 +39,8 @@ public class Arkanoid {
 	}
 
 	public Arkanoid() {
+		
+	
 
 		ventana = new JFrame("Arkanoid");
 		ventana.setBounds(0, 0, 555, 800);
@@ -53,7 +57,21 @@ public class Arkanoid {
 
 		ventana.getContentPane().add(canvas, BorderLayout.CENTER);
 		
+		ventana.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		ventana.addWindowListener(new WindowAdapter() {
+
+			@Override
+			public void windowClosing(WindowEvent e) {
+				// TODO Auto-generated method stub
+				super.windowClosing(e);
+				cerrarAplicacion();
+			}
+			
+			
+		});
+		
 		canvas.addKeyListener(new KeyAdapter() {
+			
 
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -94,8 +112,12 @@ public class Arkanoid {
 
 	public static void main(String[] args) {
 		Arkanoid.getInstance().juego();
+		
+		
 
 	}
+	
+	
 
 	public void juego() {
 		
@@ -149,7 +171,7 @@ public class Arkanoid {
 
 		List<Actor> actores = new ArrayList<Actor>();
 
-		pelota = new Pelota(250, 700, 10, 10);
+		pelota = new Pelota(250, 400, 10, 10);
 		nave = new Nave(230, 680, 50, 15);
 		String colores[] = new String[] {"Rojo", "Verde", "Azul", "Naranja", "Plateado", "Dorado"};
 		int movimientoAbajo = 0;
@@ -159,32 +181,32 @@ public class Arkanoid {
 				
 				if (i == 5) {
 				Ladrillo ladrillo = new Ladrillo(5 + movimientoDerecha, 10 + movimientoAbajo,36,
-						20, colores[0]);
+						20, colores[0],1);
 				actores.add(ladrillo);
 				}
 				if (i == 4) {
 					Ladrillo ladrillo = new Ladrillo(5 + movimientoDerecha, 10 + movimientoAbajo,36,
-							20, colores[1]);
+							20, colores[1],2);
 					actores.add(ladrillo);
 					}
 				if (i == 3) {
 					Ladrillo ladrillo = new Ladrillo(5 + movimientoDerecha, 10 + movimientoAbajo,36,
-							20, colores[2]);
+							20, colores[2],1);
 					actores.add(ladrillo);
 					}
 				if (i == 2) {
 					Ladrillo ladrillo = new Ladrillo(5 + movimientoDerecha, 10 + movimientoAbajo,36,
-							20, colores[3]);
+							20, colores[3],1);
 					actores.add(ladrillo);
 					}
 				if (i == 1) {
 					Ladrillo ladrillo = new Ladrillo(5 + movimientoDerecha, 10 + movimientoAbajo,36,
-							20, colores[4]);
+							20, colores[4],2);
 					actores.add(ladrillo);
 					}
 				if (i == 0) {
 					Ladrillo ladrillo = new Ladrillo(5 + movimientoDerecha, 10 + movimientoAbajo,36,
-							20, colores[5]);
+							20, colores[5],3);
 					actores.add(ladrillo);
 					}
 				
@@ -250,6 +272,16 @@ public class Arkanoid {
 					}
 				}
 			}
+		}
+	}
+	
+	private void cerrarAplicacion() {
+		String [] opciones ={"Aceptar","Cancelar"};
+		int eleccion = JOptionPane.showOptionDialog(ventana,"¿Desea cerrar la aplicación?","Salir de la aplicación",
+		JOptionPane.YES_NO_OPTION,
+		JOptionPane.QUESTION_MESSAGE, null, opciones, "Aceptar");
+		if (eleccion == JOptionPane.YES_OPTION) {
+			System.exit(0);
 		}
 	}
 

@@ -51,10 +51,13 @@ public class Pelota extends Actor {
 
 	public void colisionaCon(Actor a) {
 		super.colisionaCon(a);
-		// Si colisionamos con monstruo, eliminamos el disparo
-		if (a instanceof Nave) {
+		
+			
+		if (a instanceof Nave || a instanceof Ladrillo) {
+			this.velocidadY = -this.velocidadY;
 		}
-
+		this.y += this.velocidadY;
+		
 	}
 
 }
