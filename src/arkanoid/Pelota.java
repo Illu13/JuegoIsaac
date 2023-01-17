@@ -6,7 +6,7 @@ import java.awt.Graphics;
 public class Pelota extends Actor {
 
 	private int velocidadX = -5;
-	private int velocidadY = -5;
+	private int velocidadY = 5;
 
 	public Pelota() {
 		super();
@@ -43,7 +43,7 @@ public class Pelota extends Actor {
 		// Copiamos el esquema anterior para el movimiento vertical
 		this.y += this.velocidadY;
 		// Si el monstruo abandona la escena por la izquierda o la derecha, rebota
-		if (this.y < 0 || (this.y + this.largo) > Arkanoid.getInstance().getCanvas().getHeight()) {
+		if (this.y < 0) {
 			this.velocidadY = -this.velocidadY;
 		}
 

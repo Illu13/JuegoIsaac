@@ -186,7 +186,7 @@ public class Arkanoid {
 				}
 				if (i == 4) {
 					Ladrillo ladrillo = new Ladrillo(5 + movimientoDerecha, 10 + movimientoAbajo,36,
-							20, colores[1],2);
+							20, colores[1],1);
 					actores.add(ladrillo);
 					}
 				if (i == 3) {
@@ -243,7 +243,7 @@ public class Arkanoid {
 	
 	public static boolean terminarJuego(Actor pelota) {
 		
-		if (pelota.getY() >= 750) {
+		if (pelota.getY() >= Arkanoid.getInstance().getCanvas().getHeight() + 10) {
 			return true;
 		}
 		

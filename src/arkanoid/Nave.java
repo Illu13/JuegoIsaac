@@ -11,7 +11,7 @@ import javax.swing.event.MenuKeyListener;
 
 public class Nave extends Actor {
 
-	protected static int VELOCIDAD = 5;
+	protected static int VELOCIDAD = 8;
 	protected int vidas;
 	private boolean izquierda = false, derecha = false;
 
