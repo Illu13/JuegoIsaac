@@ -2,6 +2,7 @@ package arkanoid;
 
 import java.awt.Graphics;
 
+
 public abstract class Actor {
 	
 	protected int x;
@@ -29,6 +30,9 @@ public abstract class Actor {
 	}
 	
 	public abstract void actua ();
+	
+	public void colisionaCon(Actor a) {
+	}
 
 
 

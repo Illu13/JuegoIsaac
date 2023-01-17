@@ -9,7 +9,6 @@ import java.awt.event.KeyListener;
 import javax.swing.event.MenuKeyListener;
 
 
-
 public class Nave extends Actor {
 
 	protected static int VELOCIDAD = 5;
@@ -60,7 +59,7 @@ public class Nave extends Actor {
 		if (derecha)
 			this.x += VELOCIDAD;
 		
-		mover(this.x);
+		mover(this.x, this.y);
 
 	}
 
@@ -88,10 +87,11 @@ public class Nave extends Actor {
 		}
 	}
 	
-	public void mover(int x) {
+	public void mover(int x, int y) {
 		this.x = x;
+		this.y = y;
 		// Controlo los casos en los que el jugador pueda salir del Canvas
-		MiCanvas canvas = Arkanoid.getInstance().getCanvas(); // Referencia al objeto Canvas usado
+		MiCanvas canvas = Arkanoid.getInstance().getCanvas(); // R
 		
 		// Compruebo si el jugador sale por la derecha
 		if (this.x > (canvas.getWidth() - this.ancho)) {
