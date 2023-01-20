@@ -18,7 +18,8 @@ import javax.swing.JOptionPane;
 import utils.Utils;
 
 public class Arkanoid {
-
+		
+	
 	private static int FPS = 60;
 	private JFrame ventana = null;
 	private List<Actor> actores = new ArrayList<Actor>();
@@ -26,6 +27,7 @@ public class Arkanoid {
 	static Nave nave = null;
 	static Pelota pelota = null;
 	private List<Actor> actoresParaEliminar = new ArrayList<Actor>();
+
 
 	String colores[] = new String[] { "rojo", "verde", "azul", "naranja", "amarillo", "rojo" };
 
@@ -41,7 +43,7 @@ public class Arkanoid {
 	public Arkanoid() {
 		
 	
-
+		
 		ventana = new JFrame("Arkanoid");
 		ventana.setBounds(0, 0, 555, 800);
 		ventana.setLocationRelativeTo(null);
@@ -51,8 +53,9 @@ public class Arkanoid {
 		ventana.getContentPane().setLayout(new BorderLayout());
 
 		// Creo una lista de actores que intervendrá en el juego.
+		
 		actores = creaActores();
-
+		
 		canvas = new MiCanvas(actores);
 
 		ventana.getContentPane().add(canvas, BorderLayout.CENTER);
@@ -108,10 +111,17 @@ public class Arkanoid {
 		// Tras mostrar la ventana, consigo que el foco de la ventana vaya al
 		// Canvas, para que pueda escuchar los eventos del teclado
 		canvas.requestFocus();
+		
 	}
+		
 
 	public static void main(String[] args) {
+		
+		
 		Arkanoid.getInstance().juego();
+	
+		
+	
 		
 		
 
@@ -123,6 +133,7 @@ public class Arkanoid {
 		
 		
 		int millisPorCadaFrame = 1000 / FPS;
+	
 		do {			
 			
 			if (ventana.getFocusOwner() != null && !ventana.getFocusOwner().equals(canvas)) {
@@ -171,7 +182,7 @@ public class Arkanoid {
 
 		List<Actor> actores = new ArrayList<Actor>();
 
-		pelota = new Pelota(250, 400, 10, 10);
+		pelota = new Pelota(Utils.obtenerNumeroAzar(100, 400), 400, 10, 10);
 		nave = new Nave(230, 680);
 		String colores[] = new String[] {"Rojo", "Verde", "Azul", "Naranja", "Plateado", "Dorado"};
 		int movimientoAbajo = 0;
@@ -284,5 +295,8 @@ public class Arkanoid {
 			System.exit(0);
 		}
 	}
+	
+	}
 
-}
+	
+	
