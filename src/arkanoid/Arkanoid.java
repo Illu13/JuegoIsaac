@@ -234,7 +234,7 @@ public class Arkanoid {
 	
 	private void actualizaActores () {
 		
-		// Elimino los actores que se deben eliminar
+		
 		for (Actor a : this.actoresParaEliminar) {
 			this.actores.remove(a);
 		}
