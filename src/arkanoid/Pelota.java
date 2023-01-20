@@ -13,23 +13,19 @@ public class Pelota extends Actor {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Pelota(int x, int y, int ancho, int largo) {
-		super();
-		this.x = x;
-		this.y = y;
+	public Pelota (int x, int y, int ancho, int largo) {
+		super(x, y, ImagesCache.getInstance().getImagen(ImagesCache.IMAGEN_PELOTA));
 		this.ancho = ancho;
 		this.largo = largo;
 	}
+
 
 	@Override
 	public String toString() {
 		return "Pelota [velocidadMovimiento=" + x + ", y=" + y + ", ancho=" + ancho + ", largo=" + largo + "]";
 	}
 
-	public void paint(Graphics g) {
-		g.setColor(Color.WHITE);
-		g.fillOval(this.x, this.y, this.ancho, this.largo);
-	}
+
 
 	@Override
 	public void actua() {
@@ -43,7 +39,7 @@ public class Pelota extends Actor {
 		// Copiamos el esquema anterior para el movimiento vertical
 		this.y += this.velocidadY;
 		// Si el monstruo abandona la escena por la izquierda o la derecha, rebota
-		if (this.y < 0) {
+		if (this.y < 10) {
 			this.velocidadY = -this.velocidadY;
 		}
 

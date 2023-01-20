@@ -1,6 +1,7 @@
 package arkanoid;
 
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 
 
 public abstract class Actor {
@@ -9,6 +10,7 @@ public abstract class Actor {
 	protected int y;
 	protected int ancho = 30;
 	protected int largo = 30;
+	protected BufferedImage img;
 	
 	
 	
@@ -18,20 +20,35 @@ public abstract class Actor {
 		// TODO Auto-generated constructor stub
 	}
 
-	public abstract void paint(Graphics g); 
+	public void paint(Graphics g) {
+		g.drawImage(this.img, this.x, this.y, null);
+	}
 
 
-	public Actor(int x, int y, int ancho, int largo) {
+	public Actor(int x, int y, BufferedImage img) {
 		super();
 		this.x = x;
 		this.y = y;
-		this.ancho = ancho;
-		this.largo = largo;
+	
+		this.setImg(img);
 	}
 	
 	public abstract void actua ();
 	
 	public void colisionaCon(Actor a) {
+	}
+	
+	public BufferedImage getImg() {
+		return img;
+	}
+
+	/**
+	 * @param img the img to set
+	 */
+	public void setImg(BufferedImage img) {
+		this.img = img;
+		this.ancho = this.img.getWidth();
+		this.largo = this.img.getHeight();
 	}
 
 

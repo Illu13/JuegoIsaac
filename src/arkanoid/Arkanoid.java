@@ -123,7 +123,7 @@ public class Arkanoid {
 		
 		
 		int millisPorCadaFrame = 1000 / FPS;
-		do {
+		do {			
 			
 			if (ventana.getFocusOwner() != null && !ventana.getFocusOwner().equals(canvas)) {
 				canvas.requestFocus();
@@ -172,7 +172,7 @@ public class Arkanoid {
 		List<Actor> actores = new ArrayList<Actor>();
 
 		pelota = new Pelota(250, 400, 10, 10);
-		nave = new Nave(230, 680, 50, 15);
+		nave = new Nave(230, 680);
 		String colores[] = new String[] {"Rojo", "Verde", "Azul", "Naranja", "Plateado", "Dorado"};
 		int movimientoAbajo = 0;
 		for (int i = 0; i < 6; i++) {

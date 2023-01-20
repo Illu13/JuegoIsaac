@@ -5,52 +5,32 @@ import java.awt.Graphics;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 
 import javax.swing.event.MenuKeyListener;
+
+
 
 
 public class Nave extends Actor {
 
 	protected static int VELOCIDAD = 8;
-	protected int vidas;
 	private boolean izquierda = false, derecha = false;
+	
+	
 
 	public Nave() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Nave(int x, int y, int ancho, int largo) {
-		super();
-		this.x = x;
-		this.y = y;
-		this.ancho = ancho;
-		this.largo = largo;
+	public Nave(int x, int y) {
+		super(x, y, ImagesCache.getInstance().getImagen(ImagesCache.IMAGEN_NAVE));
 	}
 
-	public Nave(int velocidad, int vidas) {
-		super();
-		this.vidas = vidas;
-	}
+	
 
-	public int getVidas() {
-		return vidas;
-	}
 
-	public void setVidas(int vidas) {
-		this.vidas = vidas;
-	}
-
-	@Override
-	public String toString() {
-		return "Nave [velocidad=" + ", vidas=" + vidas + ", x=" + x + ", y=" + y + ", ancho=" + ancho + ", largo="
-				+ largo + "]";
-	}
-
-	public void paint(Graphics g) {
-		g.setColor(Color.RED);
-		g.fillRect(this.x, this.y, this.ancho, this.largo);
-	}
 
 	@Override
 	public void actua() {
