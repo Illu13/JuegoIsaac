@@ -5,6 +5,9 @@ import java.awt.Graphics;
 
 
 
+
+
+
 public class Ladrillo extends Actor {
 	
 	protected int puntosVida;
@@ -23,6 +26,7 @@ public class Ladrillo extends Actor {
 		this.largo = largo;
 		this.color = color;
 		this.puntosVida = puntosVida;
+		this.setSpriteActual(ResourcesCache.getInstance().getImagen(ResourcesCache.IMAGEN_LADRILLO));
 	}
 	public Ladrillo(int puntosVida, String color) {
 		super();
@@ -86,8 +90,8 @@ public class Ladrillo extends Actor {
 		if (a instanceof Pelota) {
 			setPuntosVida(puntosVida - 1);
 			if (getPuntosVida() == 0)
-			Arkanoid.getInstance().eliminaActor(this);
-			
+				Arkanoid.getInstance().eliminaActor(this);
+			Arkanoid.getInstance().incorporaNuevoActor(new Explosion(this.x, this.y));
 		}
 	}
 	

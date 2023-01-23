@@ -15,6 +15,7 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+
 import utils.Utils;
 
 public class Arkanoid {
@@ -27,6 +28,7 @@ public class Arkanoid {
 	static Nave nave = null;
 	static Pelota pelota = null;
 	private List<Actor> actoresParaEliminar = new ArrayList<Actor>();
+	private List<Actor> actoresParaIncorporar = new ArrayList<Actor>();
 
 
 	String colores[] = new String[] { "rojo", "verde", "azul", "naranja", "amarillo", "rojo" };
@@ -117,6 +119,7 @@ public class Arkanoid {
 
 	public static void main(String[] args) {
 		
+		ResourcesCache.getInstance().cargarRecursosEnMemoria();
 		
 		Arkanoid.getInstance().juego();
 	
@@ -259,6 +262,10 @@ public class Arkanoid {
 		}
 		
 		return false;
+	}
+	
+	public void incorporaNuevoActor (Actor a) {
+		this.actoresParaIncorporar.add(a);
 	}
 	
 	private void detectaColisiones() {
