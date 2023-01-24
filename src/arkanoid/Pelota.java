@@ -13,10 +13,11 @@ public class Pelota extends Actor {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Pelota (int x, int y, int ancho, int largo) {
-		super(x, y, ImagesCache.getInstance().getImagen(ImagesCache.IMAGEN_PELOTA));
-		this.ancho = ancho;
-		this.largo = largo;
+	public Pelota (int x, int y) {
+		super(x, y);
+		this.ancho = 10;
+		this.largo = 10;
+		this.setSpriteActual(ResourcesCache.getInstance().getImagen(ResourcesCache.IMAGEN_PELOTA));
 	}
 
 

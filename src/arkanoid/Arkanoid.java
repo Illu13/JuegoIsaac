@@ -185,7 +185,7 @@ public class Arkanoid {
 
 		List<Actor> actores = new ArrayList<Actor>();
 
-		pelota = new Pelota(Utils.obtenerNumeroAzar(100, 400), 400, 10, 10);
+		pelota = new Pelota(Utils.obtenerNumeroAzar(100, 400), 400);
 		nave = new Nave(230, 680);
 		String colores[] = new String[] {"Rojo", "Verde", "Azul", "Naranja", "Plateado", "Dorado"};
 		int movimientoAbajo = 0;

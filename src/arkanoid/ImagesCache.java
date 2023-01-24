@@ -12,7 +12,7 @@ public class ImagesCache {
 
 	public static String IMAGEN_PELOTA = "pelota.png";
 	public static String IMAGEN_NAVE = "nave.png";
-	public static String IMAGEN_LADRILLO = "ladrillo.png";
+	public static String IMAGEN_LADRILLO = "clio.png";
 
 	private HashMap<String, BufferedImage> sprites = new HashMap<String, BufferedImage>();
 

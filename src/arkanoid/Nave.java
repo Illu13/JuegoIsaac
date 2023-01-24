@@ -12,6 +12,8 @@ import javax.swing.event.MenuKeyListener;
 
 
 
+
+
 public class Nave extends Actor {
 
 	protected static int VELOCIDAD = 8;
@@ -25,7 +27,7 @@ public class Nave extends Actor {
 	}
 
 	public Nave(int x, int y) {
-		super(x, y, ImagesCache.getInstance().getImagen(ImagesCache.IMAGEN_NAVE));
+		this.setSpriteActual(ResourcesCache.getInstance().getImagen(ResourcesCache.IMAGEN_PLAYER));
 	}
 
 	

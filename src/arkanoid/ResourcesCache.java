@@ -14,7 +14,7 @@ public class ResourcesCache {
 	// Propiedades estáticas de esta clase
 	public static String IMAGEN_PELOTA = "pelota.png";
 	public static String IMAGEN_PLAYER = "nave.png";
-	public static String IMAGEN_LADRILLO = "clio.png";
+	public static String IMAGEN_LADRILLO = "ladrillo.png";
 
 	// HashMap que actúa como almacén de imágenes
 	private HashMap<String, Object> hmRecursos = new HashMap<String, Object>();
