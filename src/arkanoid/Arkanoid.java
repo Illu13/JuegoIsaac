@@ -16,6 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
+
 import utils.Utils;
 
 public class Arkanoid {
@@ -253,6 +254,11 @@ public class Arkanoid {
 			this.actores.remove(a);
 		}
 		this.actoresParaEliminar.clear(); // Limpio la lista de actores a eliminar, ya los he eliminado
+		
+		for (Actor a : this.actoresParaIncorporar) {
+			this.actores.add(a);
+		}
+		this.actoresParaIncorporar.clear(); 
 	}
 	
 	public static boolean terminarJuego(Actor pelota) {
